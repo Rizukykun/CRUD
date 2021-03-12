@@ -6,10 +6,14 @@
 package crud.business;
 
 import crud.shared.RoupaModel;
-import crud.business.Validacao;
+import java.util.ArrayList;
 
 public class Dados {
-    private boolean salvarDados(RoupaModel model){
+    public Dados(){
+        
+    }
+    
+    public boolean salvarDados(RoupaModel model){
         if (Validacao.validaModel(model)){
             //envia pro 'dao'
             return true;
@@ -17,5 +21,30 @@ public class Dados {
         else{
             return false;
         }
+    }
+    
+    public boolean AtualizarDados (RoupaModel model){
+        if (Validacao.validaModel(model)){
+            //envia pro 'dao'
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    public boolean RemoverDados (int cod){
+        //envia pro dao
+        return true;
+    }
+    
+    public RoupaModel ConsultarDados (int cod) throws Exception{
+        //consulta o dao
+        throw new Exception("dao não implementado ainda");
+    }
+    
+    public ArrayList<RoupaModel> ListarDados () throws Exception{
+        //consulta o dao
+        throw new Exception("dao não implementado ainda");
     }
 }
