@@ -1,51 +1,71 @@
 package crud.business;
 
 import java.time.*;
+import crud.shared.RoupaModel;
 
 /*
  * Possui as validações para todos os itens da RoupaModel, com excessão dos Enums
  */
 public class Validacao {
-    public boolean validaCodItem(int codItem){
+    public static boolean validaCodItem(int codItem){
         //Verificar se o código informado já existe no banco de dados
         return true;
     }
-    public boolean validaDataEntrada(LocalDate dataEntrada){
+    public static boolean validaDataEntrada(LocalDate dataEntrada){
         return dataEntrada.isBefore(LocalDate.now());
     }
-    public boolean validaLocaldeCompra(String localDeCompra){
+    public static boolean validaLocaldeCompra(String localDeCompra){
         return stringIsNotNullOrBlank(localDeCompra);
     }
-    public boolean validaTipoRoupa(String tipoRoupa){
+    public static boolean validaTipoRoupa(String tipoRoupa){
         return stringIsNotNullOrBlank(tipoRoupa);
     }
-    public boolean validaMarcaRoupa(String marcaRoupa){
+    public static boolean validaMarcaRoupa(String marcaRoupa){
         return stringIsNotNullOrBlank(marcaRoupa);
     }
-    public boolean validaCaracteristicasRoupa(String caracteristicasRoupa){
+    public static boolean validaCaracteristicasRoupa(String caracteristicasRoupa){
         return stringIsNotNullOrBlank(caracteristicasRoupa);
     }
-    public boolean validaValorEtiqueta(double valorEtiqueta){
+    public static boolean validaValorEtiqueta(double valorEtiqueta){
         return doubleIsPositiveOrZero(valorEtiqueta);
     }
-    public boolean validaValorCompra(double valorCompra){
+    public static boolean validaValorCompra(double valorCompra){
         return doubleIsPositiveOrZero(valorCompra);
     }
-    public boolean validaPrecoSugerido(double precoSugerido){
+    public static boolean validaPrecoSugerido(double precoSugerido){
         return doubleIsPositiveOrZero(precoSugerido);
     }    
+    
+    public static boolean validaModel(RoupaModel model){
+        if (validaCodItem(model.getCodItem()) && 
+            validaDataEntrada(model.getDataEntrada()) &&
+            validaLocaldeCompra(model.getLocalDeCompra()) &&
+            validaTipoRoupa(model.getTipoRoupa()) &&
+            validaMarcaRoupa(model.getMarcaRoupa()) &&
+            validaCaracteristicasRoupa(model.getCaracteristicasRoupa()) &&
+            validaValorEtiqueta(model.getValorEtiqueta()) &&
+            validaValorCompra(model.getValorCompra()) &&
+            validaPrecoSugerido(model.getPrecoSugerido()))
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+            
+    }
     
     /*
      * Retorna true se a double informada for positiva ou zero
      */   
-    private boolean doubleIsPositiveOrZero(double d){
+    private static boolean doubleIsPositiveOrZero(double d){
         return d >= 0;
     }
     
     /*
      * Retorna true se a string informada não for null ou estiver vazia
      */ 
-    private boolean stringIsNotNullOrBlank(String string) { 
+    private static boolean stringIsNotNullOrBlank(String string) { 
         return !(string == null || string.trim().length() == 0);
     }
 }
