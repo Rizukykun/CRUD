@@ -15,13 +15,16 @@ import java.util.ArrayList;
  * @author Fábio
  */
 public class CRUDDao {
-
-    
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) throws Exception {
+       File dados = new File("dados.txt"); 
+       FileWriter writer = new FileWriter("dados.txt");
+       if (!dados.createNewFile()){
+           dados.delete();
+           dados.createNewFile();
+       }
     }
     
 }
