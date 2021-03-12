@@ -6,6 +6,9 @@
 package crud.console;
 
 import java.util.Scanner;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -26,17 +29,70 @@ public class CRUDConsole {
         System.out.println("4-Deletar");
         System.out.println("5-sair");
         
+        /*try {
+            arquivo.createNewFile();
+        }catch(IOException ex){*/
+        
+        /*}
+
+        do {
+            System.out.println("\n" + "Digite um codigo:");
+            codigo = teclado.nextLine();*/
+
+        
         int v1=ler.nextInt();
         switch(v1)
+            
+          
         {
             case 1:
-                System.out.println("Digite o local da compra");                
+                System.out.println("Digite o local da compra");
+                /*string Roupa = s.localDeCompra();*/
+                System.out.println("Digite o tipo da compra");
+                /*string Roupa = s.tipoRoupa();*/
+                System.out.println("Digite a marça da compra");
+                /*string Roupa = s.marcaRoupa();*/
+                System.out.println("Digite as caracteristicas da compra");
+                /*string Roupa = s.caracteristicasRoupa();*/
+                System.out.println("Digite o tamanho da compra");
+                /*string Roupa = s.tamanhoRoupa();*/
+                System.out.println("Digite o valor da compra");
+                /*string Roupa = s.valorCompra();*/
             case 2:
-                System.out.println("B");
+                 /*try {
+                        //Ler o arquivo
+
+                        FileReader CriarExibir = new FileReader(arquivo);
+
+                        System.out.println("Lista dos nomes:");
+                        BufferedReader ler = new BufferedReader(CriarExibir);
+                        String exibir = ler.readLine();
+
+                        while(exibir != null) {
+                            System.out.println(exibir);
+                            exibir = ler.readLine();
+
+                        }
+
+                        }catch (IOException ex) {
+
+                        }
+
+                        break;*/
             case 3:
                 System.out.println("C");
             case 4:       
-                System.out.println("D");            
+                /*if(arquivo.delete()) {
+                            System.out.println("Arquivo Deletado Com sucesso");
+                        }
+
+                        break;
+
+                    default:
+                        System.out.println("Codigo Invalido!");
+                        break;*/
+            case 5:
+                System.exit(0);
         }
         
         
