@@ -15,6 +15,7 @@ public class Dados {
     
     public boolean salvarDados(RoupaModel model){
         if (Validacao.validaModel(model)){
+            model.setValorMargemLucro(model.getValorCompra() * 2);
             //envia pro 'dao'
             return true;
         }
