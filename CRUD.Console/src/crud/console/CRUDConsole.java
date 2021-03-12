@@ -5,10 +5,13 @@
  */
 package crud.console;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -22,6 +25,7 @@ public class CRUDConsole {
     public static void main(String[] args) 
     {
         Scanner ler = new Scanner(System.in);
+        File arquivo = new File("Produto.txt"); // cria uma .txt no workspace
     
         System.out.println("1-Cadastrar");
         System.out.println("2-Ler");
@@ -29,20 +33,23 @@ public class CRUDConsole {
         System.out.println("4-Deletar");
         System.out.println("5-sair");
         
-        /*try {
+        try 
+        {
             arquivo.createNewFile();
-        }catch(IOException ex){*/
-        
-        /*}
+        }
+        catch(IOException ex)
+        {
+            
+        }
 
-        do {
+        do 
+        {
             System.out.println("\n" + "Digite um codigo:");
-            codigo = teclado.nextLine();*/
 
         
         int v1=ler.nextInt();
         switch(v1)
-            
+             
           
         {
             case 1:
@@ -59,18 +66,19 @@ public class CRUDConsole {
                 System.out.println("Digite o valor da compra");
                 /*string Roupa = s.valorCompra();*/
             case 2:
-                 /*try {
+                 try {
                         //Ler o arquivo
 
                         FileReader CriarExibir = new FileReader(arquivo);
 
                         System.out.println("Lista dos nomes:");
-                        BufferedReader ler = new BufferedReader(CriarExibir);
-                        String exibir = ler.readLine();
+                        BufferedReader read = new BufferedReader(CriarExibir);
+                        String exibir = read.readLine();
 
-                        while(exibir != null) {
+                        while(exibir != null) 
+                        {
                             System.out.println(exibir);
-                            exibir = ler.readLine();
+                            /*exibir = ler.readLine();*/
 
                         }
 
@@ -78,11 +86,12 @@ public class CRUDConsole {
 
                         }
 
-                        break;*/
+                        break;
             case 3:
                 System.out.println("C");
             case 4:       
-                /*if(arquivo.delete()) {
+                if(arquivo.delete()) 
+                {
                             System.out.println("Arquivo Deletado Com sucesso");
                         }
 
@@ -90,12 +99,9 @@ public class CRUDConsole {
 
                     default:
                         System.out.println("Codigo Invalido!");
-                        break;*/
+                        break;
             case 5:
                 System.exit(0);
         }
-        
-        
-    }
-    
-}
+       
+    }    
