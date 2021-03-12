@@ -15,6 +15,7 @@ import java.util.ArrayList;
  * @author Fábio
  */
 public class CRUDDao {
+<<<<<<< HEAD
     /**
      * @param args the command line arguments
      */
@@ -25,6 +26,15 @@ public class CRUDDao {
            dados.delete();
            dados.createNewFile();
        }
+=======
+
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+>>>>>>> 4c8e026874a4cb2083ef9ba51f8863f982ab98de
     }
     
 }
