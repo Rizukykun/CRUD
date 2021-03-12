@@ -7,30 +7,36 @@ package crud.business;
 
 import crud.shared.RoupaModel;
 import java.util.ArrayList;
+import crud.dao.*;
 
 public class Dados {
     public Dados(){
         
     }
     
-    public boolean salvarDados(RoupaModel model){
+    public void salvarDados(RoupaModel model) throws Exception{
+        try
+        {
         if (Validacao.validaModel(model)){
             model.setValorMargemLucro(model.getValorCompra() * 2);
-            //envia pro 'dao'
-            return true;
+            DAO dao = new DAO();
+            dao.Criar(model);
         }
         else{
-            return false;
+            throw new Exception("Dados informados não estão validos");
+        }
+        }
+        catch (Exception e){
+            throw new Exception(e);
         }
     }
     
-    public boolean AtualizarDados (RoupaModel model){
+    public void AtualizarDados (RoupaModel model) throws Exception{
         if (Validacao.validaModel(model)){
-            //envia pro 'dao'
-            return true;
+            
         }
         else{
-            return false;
+            throw new Exception("Dados informados não estão validos");
         }
     }
     

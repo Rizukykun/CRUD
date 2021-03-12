@@ -22,7 +22,7 @@ public class DAO {
         Carregar();
     }
 
-    private HashMap<Integer, RoupaModel> listaRoupas = new HashMap<Integer, RoupaModel>();
+    private static HashMap<Integer, RoupaModel> listaRoupas = new HashMap<Integer, RoupaModel>();
     private File dados = new File("dados.txt");
 
     public void Criar(RoupaModel roupa) {
