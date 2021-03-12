@@ -5,6 +5,10 @@
  */
 package crud.dao;
 
+import crud.shared.*;
+import java.io.*;
+import java.util.ArrayList;
+
 /**
  *
  * @author Fábio
@@ -14,9 +18,10 @@ public class CRUDDao {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) 
-    {
-        // TODO code application logic here
+
+    public static void main(String[] args) {
+
+
     }
-    
+
 }
