@@ -33,9 +33,12 @@ public class CRUDConsole {
         System.out.println("4-Deletar");
         System.out.println("5-sair");
 
-        try {
+        try 
+        {
             arquivo.createNewFile();
-        } catch (Exception e) {
+        } 
+        catch (Exception e) 
+        {
 
         }
 
@@ -65,7 +68,9 @@ public class CRUDConsole {
                         BufferedReader read = new BufferedReader(CriarExibir);
                         String exibir = read.readLine();
 
-                        while (exibir != null) {
+
+                        while(exibir != null) 
+                        {
                             System.out.println(exibir);
                             /*exibir = ler.readLine();*/
                         }
@@ -74,23 +79,17 @@ public class CRUDConsole {
 
                     }
                     break;
+                
                 case 3:
                     System.out.println("C");
                 case 4:
-                    if (arquivo.delete()) {
+                    if (arquivo.delete()) 
+                    {
                         System.out.println("Arquivo Deletado Com sucesso");
                     }
-
-                    break;
-
-                case 5:
-                    System.exit(0);
-                    break;
-
-                default:
-                    System.out.println("Codigo Invalido!");
-                    break;
+                        break;
+            case 5:
+                System.exit(0);
         }
-    }
-    
-}
+       
+    }    
