@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crud.shared;
+package crud.business;
 
 /**
  *
  * @author Fábio
  */
-public enum enumTipoRepositorio {
-    Texto
-    //Adicionar os outros tipos de repositorio aqui
+public class enumTipoInterface {
+    
 }
