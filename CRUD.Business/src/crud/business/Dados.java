@@ -11,11 +11,19 @@ import crud.dao.*;
 
 public class Dados {
 
+    enumTipoRepositorio repositorio = enumTipoRepositorio.Texto; //Por enquanto, aqui troca o tipo de repositorio
+    DAO dao;
+    
+    public Dados() throws Exception{
+        if (repositorio == enumTipoRepositorio.Texto){
+            dao = new DAOTexto();
+        }
+    }
+    
     public void salvarDados(RoupaModel model) throws Exception {
         try {
             if (Validacao.validaModel(model)) {
                 model.setValorMargemLucro(model.getValorCompra() * 2);
-                DAO dao = new DAO();
                 dao.Criar(model);
             } else {
                 throw new Exception("Dados informados não estão validos");
@@ -29,7 +37,7 @@ public class Dados {
         try {
             if (Validacao.validaModel(model)) {
                 model.setValorMargemLucro(model.getValorCompra() * 2);
-                DAO dao = new DAO();
+                DAO dao = new DAOTexto();
                 dao.Atualizar(model.getCodItem(), model);
             } else {
                 throw new Exception("Dados informados não estão validos");
@@ -41,7 +49,7 @@ public class Dados {
 
     public void removerDados(int cod) throws Exception{
         try{
-            DAO dao = new DAO();
+            DAO dao = new DAOTexto();
             dao.Deletar(cod);
         }
         catch (Exception e){
@@ -51,7 +59,7 @@ public class Dados {
 
     public RoupaModel ConsultarDados(int cod) throws Exception {
         try{
-            DAO dao = new DAO();
+            DAO dao = new DAOTexto();
             return dao.Consultar(cod);
         }
         catch (Exception e){
@@ -61,7 +69,7 @@ public class Dados {
 
     public ArrayList<RoupaModel> ListarDados() throws Exception {
         try{
-            DAO dao = new DAO();
+            DAO dao = new DAOTexto();
             return dao.Listar();
         }
         catch (Exception e){
