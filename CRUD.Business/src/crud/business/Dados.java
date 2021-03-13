@@ -22,7 +22,7 @@ public class Dados {
     
     public void salvarDados(RoupaModel model) throws Exception {
         try {
-            if (Validacao.validaModel(model)) {
+            if (Validacao.validaCodItem(model.getCodItem()) &&  Validacao.validaModel(model)) {
                 model.setValorMargemLucro(model.getValorCompra() * 2);
                 dao.Criar(model);
             } else {
@@ -35,9 +35,8 @@ public class Dados {
 
     public void atualizarDados(RoupaModel model) throws Exception {
         try {
-            if (Validacao.validaModel(model)) {
+            if (!Validacao.validaCodItem(model.getCodItem()) && Validacao.validaModel(model)) {
                 model.setValorMargemLucro(model.getValorCompra() * 2);
-                DAO dao = new DAOTexto();
                 dao.Atualizar(model.getCodItem(), model);
             } else {
                 throw new Exception("Dados informados não estão validos");
@@ -49,7 +48,6 @@ public class Dados {
 
     public void removerDados(int cod) throws Exception{
         try{
-            DAO dao = new DAOTexto();
             dao.Deletar(cod);
         }
         catch (Exception e){
@@ -59,7 +57,6 @@ public class Dados {
 
     public RoupaModel ConsultarDados(int cod) throws Exception {
         try{
-            DAO dao = new DAOTexto();
             return dao.Consultar(cod);
         }
         catch (Exception e){
@@ -69,11 +66,14 @@ public class Dados {
 
     public ArrayList<RoupaModel> ListarDados() throws Exception {
         try{
-            DAO dao = new DAOTexto();
             return dao.Listar();
         }
         catch (Exception e){
             throw new Exception (e);
         }
+    }
+    
+    public void Finalizar() throws Exception{
+        dao.Salvar();
     }
 }
