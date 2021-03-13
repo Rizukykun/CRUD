@@ -5,17 +5,9 @@
  */
 package crud.business;
 
-/**
- *
- * @author Fábio
- */
-public class CRUDBusiness {
+import crud.dao.*;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public enum enumTipoRepositorio{
+    Texto();
+    //Adicionar os outros tipos de repositorio aqui
     }
-    
-}
