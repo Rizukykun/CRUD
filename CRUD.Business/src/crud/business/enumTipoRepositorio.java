@@ -5,13 +5,9 @@
  */
 package crud.business;
 
-/**
- *
- * @author Fábio
- */
-public enum enumTipoRepositorio {
-    Texto
+import crud.dao.*;
+
+public enum enumTipoRepositorio{
+    Texto();
     //Adicionar os outros tipos de repositorio aqui
-    
-    //Classe pai para o DAO deve ser adicionada aqui, e as opções do enum devem trocar qual das filhas ele usa
-}
+    }
